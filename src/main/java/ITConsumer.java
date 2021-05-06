@@ -1,8 +1,5 @@
 import com.rabbitmq.client.*;
-
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ITConsumer {
@@ -12,8 +9,6 @@ public class ITConsumer {
         factory.setHost("localhost");
         factory.setUsername("admin");
         factory.setPassword("123456");
-
-
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
             channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
@@ -35,10 +30,7 @@ public class ITConsumer {
                 };
                 channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {
                 });
-
-
             } while (!topic.equals("exit"));
-
         }
     }
 }

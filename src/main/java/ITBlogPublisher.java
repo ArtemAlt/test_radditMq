@@ -2,7 +2,6 @@ import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
@@ -26,7 +25,6 @@ public class ITBlogPublisher {
                 String[] separateInput = inputCommand.split(" ");
                 topic = separateInput[0];
                 StringBuilder outMessage= new StringBuilder();
-
                 for (int i = 2; i < separateInput.length; i++) {
                   outMessage.append(separateInput[i]).append(" ");
                 }
